@@ -6,6 +6,7 @@
 
 /dts-v1/;
 
+#include <freq.h>
 #include <riscv64-fu740.dtsi>
 
 / {
@@ -22,15 +23,17 @@
 	};
 };
 
+&cpu {
+	clock-frequency = <DT_FREQ_M(1000)>;
+};
+
 &uart0 {
 	status = "okay";
 	current-speed = <115200>;
-	clock-frequency = <125125000>;
 };
 
 &spi0 {
 	status = "okay";
-	clock-frequency = <125125000>;
 
 	reg = <0x10040000 0x1000 0x20000000 0x2000000>;
 	flash0: flash@0 {
@@ -45,10 +48,8 @@
 
 &spi1 {
 	status = "okay";
-	clock-frequency = <125125000>;
 };
 
 &spi2 {
 	status = "okay";
-	clock-frequency = <125125000>;
 };

@@ -7,6 +7,8 @@
 #include <init.h>
 #include "fu740_prci.h"
 
+BUILD_ASSERT(MHZ(1000) == SIFIVE_CORECLK_HZ, "Unsupported CORECLK frequency");
+
 /*
  * Switch the clock source
  *   - core: to 1GHz PLL (CORE_PLL) from 26MHz oscilator (HFCLK)

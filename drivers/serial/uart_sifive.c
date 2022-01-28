@@ -369,7 +369,7 @@ static void uart_sifive_irq_cfg_func_0(void);
 
 static const struct uart_sifive_device_config uart_sifive_dev_cfg_0 = {
 	.port         = DT_INST_REG_ADDR(0),
-	.sys_clk_freq = DT_INST_PROP(0, clock_frequency),
+	.sys_clk_freq = SIFIVE_TLCLK_HZ,
 	.baud_rate    = DT_INST_PROP(0, current_speed),
 	.rxcnt_irq    = CONFIG_UART_SIFIVE_PORT_0_RXCNT_IRQ,
 	.txcnt_irq    = CONFIG_UART_SIFIVE_PORT_0_TXCNT_IRQ,
@@ -408,7 +408,7 @@ static void uart_sifive_irq_cfg_func_1(void);
 
 static const struct uart_sifive_device_config uart_sifive_dev_cfg_1 = {
 	.port         = DT_INST_REG_ADDR(1),
-	.sys_clk_freq = DT_INST_PROP(1, clock_frequency),
+	.sys_clk_freq = SIFIVE_TLCLK_HZ
 	.baud_rate    = DT_INST_PROP(1, current_speed),
 	.rxcnt_irq    = CONFIG_UART_SIFIVE_PORT_1_RXCNT_IRQ,
 	.txcnt_irq    = CONFIG_UART_SIFIVE_PORT_1_TXCNT_IRQ,

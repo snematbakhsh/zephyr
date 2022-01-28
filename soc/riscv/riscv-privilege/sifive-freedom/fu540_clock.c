@@ -7,6 +7,8 @@
 #include <init.h>
 #include "fu540_prci.h"
 
+BUILD_ASSERT(MHZ(1000) == SIFIVE_CORECLK_HZ, "Unsupported CORECLK frequency");
+
 /*
  * Switch the clock source to 1GHz PLL from 33.333MHz oscilator on the HiFive
  * Unleashed board.

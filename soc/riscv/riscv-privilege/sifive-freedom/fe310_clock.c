@@ -8,6 +8,8 @@
 #include <init.h>
 #include "fe310_prci.h"
 
+BUILD_ASSERT(MHZ(16) == SIFIVE_CORECLK_HZ, "Unsupported CORECLK frequency");
+
 /* Selects the 16MHz oscilator on the HiFive1 board, which provides a clock
  * that's accurate enough to actually drive serial ports off of.
  */

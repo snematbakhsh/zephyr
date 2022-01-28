@@ -259,7 +259,7 @@ static struct spi_driver_api spi_sifive_api = {
 	}; \
 	static struct spi_sifive_cfg spi_sifive_cfg_##n = { \
 		.base = DT_INST_REG_ADDR_BY_NAME(n, control), \
-		.f_sys = DT_INST_PROP(n, clock_frequency), \
+		.f_sys = SIFIVE_TLCLK_HZ, \
 	}; \
 	DEVICE_DT_INST_DEFINE(n, \
 			spi_sifive_init, \

@@ -23,7 +23,10 @@
 #define SIFIVE_PINMUX_PINS            32
 
 /* Clock controller. */
-#define PRCI_BASE_ADDR               0x10008000
+#define PRCI_BASE_ADDR           0x10008000
+#define SIFIVE_CORECLK_HZ        DT_PROP(DT_PATH(cpus, cpu_0), clock_frequency)
+/* TileLink bus clock is fixed to be the same as the processor core clock. */
+#define SIFIVE_TLCLK_HZ          SIFIVE_CORECLK_HZ
 
 /* Always ON Domain */
 #define SIFIVE_PMUIE		     0x10000140
@@ -37,7 +40,14 @@
 #elif defined(CONFIG_SOC_RISCV_SIFIVE_FU540) || defined(CONFIG_SOC_RISCV_SIFIVE_FU740)
 
 /* Clock controller. */
-#define PRCI_BASE_ADDR               0x10000000
+#define PRCI_BASE_ADDR           0x10000000
+#define SIFIVE_CORECLK_HZ        DT_PROP(DT_PATH(cpus, cpu_0), clock_frequency)
+/*
+ * TileLink bus clock is fixed to be processor core clock / 2 on FU540.
+ * TileLink bus clock can be either be processor core clock or / 2 on FU740, but
+ * / 2 is only configuration currently supported.
+ */
+#define SIFIVE_TLCLK_HZ          (SIFIVE_CORECLK_HZ / 2)
 
 #endif
 
