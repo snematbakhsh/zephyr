@@ -12,6 +12,7 @@ LOG_MODULE_REGISTER(i2c_sifive);
 
 #include <device.h>
 #include <drivers/i2c.h>
+#include <soc.h>
 #include <sys/sys_io.h>
 
 #include "i2c-priv.h"
@@ -327,7 +328,7 @@ static struct i2c_driver_api i2c_sifive_api = {
 	static struct i2c_sifive_cfg i2c_sifive_cfg_##n = { \
 		.base = DT_INST_REG_ADDR(n), \
 		.f_sys = DT_INST_PROP(n, input_frequency), \
-		.f_bus = DT_INST_PROP(n, clock_frequency), \
+		.f_bus = SIFIVE_PERIPHERAL_CLOCK_FREQUENCY, \
 	}; \
 	I2C_DEVICE_DT_INST_DEFINE(n, \
 			    i2c_sifive_init, \
